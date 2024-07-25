@@ -14,6 +14,14 @@
 WHERE2(libcurl, "/libcurl/", API)
 
 TITLE(The libcurl API)
+<div class="relatedbox">
+<b>Related:</b>
+<br><a href="allfuncs.html">All functions</a>
+<br><a href="libcurl-errors.html">Errors</a>
+<br><a href="example.html">Examples</a>
+<br><a href="symbols-in-versions.html">Symbols</a>
+</div>
+
 <p>
  Read <a href="libcurl.html">the libcurl API overview</a> and
  <a href="libcurl-tutorial.html">the libcurl tutorial</a> to get a general
@@ -32,7 +40,7 @@ TITLE(The libcurl API)
 TITLE(Easy or Multi)
 <p>
  The easy interface is a synchronous, efficient, quickly used and... yes, easy
- interface for file transfers. Numerous applications have been built using
+ interface for Internet transfers. Numerous applications have been built using
  this.
 <p>
  The multi interface is the asynchronous brother in the family and it also
@@ -53,7 +61,7 @@ TITLE(The Easy interface)
 <p>
  When all is setup, you tell libcurl to <a
  href="curl_easy_perform.html">perform</a> the transfer. It will then do the
- entire operation and won't return until it is done or failed.
+ entire operation and will not return until it is done or failed.
 <p>
  After the performance is made, you may <a href="curl_easy_getinfo.html">get
  information</a> about the transfer and then you <a

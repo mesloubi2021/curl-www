@@ -241,10 +241,16 @@ tr.hide {
 /* the top menu box */
 .menu {
   width: 100%;
+  background-image: url("/logo/curl-white-symbol.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
   background-color: #093754;
+  background-origin: content-box;
   text-align: center;
-  padding-top: .5em;
-  padding-bottom: .5em;
+  padding-top: .3em;
+  padding-bottom: .3em;
+  padding-left: .3em;
+  padding-right: .3em;
   line-height: 130%;
   font-size: 26px;
 }
@@ -358,7 +364,11 @@ div.yellowbox {
         margin-right: 5px;
     }
 }
-
+@media screen and (max-width: 1000px) {
+    .menu {
+        background-image: none;
+    }
+}
 /* Filtering menus on the autobuild page */
 .filtermenu {
   /* Position select box to the right of the text */
@@ -479,7 +489,7 @@ p.level1 {
     body {
         background-color: #212121;
         /* Try to keep it a bit light but not too grey,
-           so it doesn't impact people with accessibility needs */
+           so it does not impact people with accessibility needs */
         color: #fbfbfb;
     }
 

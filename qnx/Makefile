@@ -6,12 +6,15 @@ DOCROOT=$(SRCROOT)/docs
 include $(ROOT)/mainparts.mk
 include $(ROOT)/setup.mk
 
-PAGES = index.html
+PAGES=index.html
 
 all: $(PAGES)
 
-index.html: _index.html $(MAINPARTS)
+index.html: _index.html $(MAINPARTS) files.gen
 	$(ACTION)
 
+files.gen: mkfiles.pl dl/*
+	./mkfiles.pl >$@
+
 clean:
-	rm -f $(PAGES)
+	rm -f $(PAGES) *.gen

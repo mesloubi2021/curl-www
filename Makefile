@@ -1,10 +1,10 @@
 ROOT=.
 
 # the latest stable version is:
-STABLE= 8.8.0
-RELDATE = "2024-05-22"
+STABLE= 8.9.0
+RELDATE = "2024-07-24"
 # The planned *next* release is:
-NEXTDATE = "2024-07-17"
+NEXTDATE = "2024-09-11"
 
 # generated file with binary package stats
 STAT = packstat.t
@@ -36,7 +36,6 @@ PAGES= \
  index.html \
  info \
  libs.html \
- mirrors.html \
  news.html \
  newslog.html \
  oldnews.html \
@@ -51,10 +50,10 @@ all: $(PAGES)
 	cd docs && make
 	cd libcurl && make
 	cd mail && make
-	cd mirror && make
 	cd rfc && make
 	cd dev && make
 	cd windows && make
+	cd qnx && make
 	cd tiny && make
 	cd logo && make
 	cd trurl && make
@@ -126,16 +125,15 @@ download2.html: _download2.html $(MAINPARTS) $(RELEASE) dl/files.html
 dl/files.html: dl/data/databas.db
 	cd dl; make
 
-changes.html: _changes.html docs/_menu.html $(MAINPARTS)
+changes.html: _changes.html docs/_menu.html $(MAINPARTS) splitchange.pl _single-head-template.html _single-foot-template.html changes.t changescss.t
 	$(ACTION)
+	./splitchange.pl
+	cd ch && $(MAKE)
 
 gethelp.html: _gethelp.html $(MAINPARTS)
 	$(ACTION)
 
 book.html: _book.html $(MAINPARTS)
-	$(ACTION)
-
-mirrors.html: _mirrors.html $(MAINPARTS)
 	$(ACTION)
 
 about.html: _about.html docs/_menu.html $(MAINPARTS)
@@ -182,7 +180,7 @@ clean:
 	cd docs && make clean
 	cd libcurl && make clean
 	cd mail && make clean
-	cd mirror && make clean
 	cd rfc && make clean
 	cd dev && make clean
 	cd tiny && make clean
+	cd ch && make clean
